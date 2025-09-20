@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POLIDEV - Servicios Tecnológicos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">POLIDEV</h1>
+            <ul class="nav-menu">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#" id="login-btn">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section with Slider -->
+    <section id="home" class="hero">
+        <div class="slider">
+            <div class="slide active">
+                <div class="slide-content">
+                    <h2>Soluciones Tecnológicas Innovadoras</h2>
+                    <p>Impulsamos tu negocio con tecnología de vanguardia</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Desarrollo Web y Móvil</h2>
+                    <p>Aplicaciones modernas y responsivas para todos los dispositivos</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Consultoría IT Especializada</h2>
+                    <p>Expertos en transformación digital para tu empresa</p>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button class="slider-btn active"></button>
+            <button class="slider-btn"></button>
+            <button class="slider-btn"></button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Acerca de POLIDEV</h2>
+            <p>POLIDEV es una empresa líder en servicios tecnológicos, especializada en desarrollo de software, consultoría IT y soluciones digitales. Nuestro equipo de expertos está comprometido con ofrecer soluciones innovadoras que impulsen el crecimiento de tu negocio.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid" id="services-grid">
+                <!-- Los servicios se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="service-detail">
+                <!-- El detalle del servicio se cargará aquí -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Acceso Administrador</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>POLIDEV</h3>
+                    <p>Soluciones tecnológicas innovadoras para tu negocio.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Email: info@polidev.com</p>
+                    <p>Teléfono: +57 234 5678</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <p>LinkedIn | Twitter | Instagram</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 POLIDEV. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
