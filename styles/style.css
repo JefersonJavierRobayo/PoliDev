@@ -94,15 +94,15 @@ body {
 }
 
 .slide:nth-child(1) {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #3498db;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), #3498db;
 }
 
 .slide:nth-child(2) {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #2ecc71;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), #2ecc71;
 }
 
 .slide:nth-child(3) {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #9b59b6;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), #9b59b6;
 }
 
 .slide.active {
@@ -112,6 +112,8 @@ body {
 .slide-content {
     max-width: 800px;
     padding: 2rem;
+    position: relative;
+    z-index: 10;
 }
 
 .slide-content h2 {
@@ -143,6 +145,17 @@ body {
 
 .slider-btn.active {
     background-color: white;
+}
+
+.btn-services {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: #007BFF;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
 }
 
 /* About Section */
@@ -232,6 +245,20 @@ body {
     border-radius: 4px;
     font-size: 0.8rem;
     margin-top: 0.5rem;
+}
+
+/* Buscador */
+.search-bar {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
 /* Modal */
@@ -357,7 +384,7 @@ button:hover {
     margin-top: 1rem;
 }
 
-.services-list th, 
+.services-list th,
 .services-list td {
     padding: 0.8rem;
     text-align: left;
@@ -427,19 +454,19 @@ button:hover {
         background-color: #2c3e50;
         display: none;
     }
-    
+
     .nav-menu.active {
         display: flex;
     }
-    
+
     .slide-content h2 {
         font-size: 2rem;
     }
-    
+
     .slide-content p {
         font-size: 1.2rem;
     }
-    
+
     .services-grid {
         grid-template-columns: 1fr;
     }

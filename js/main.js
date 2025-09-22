@@ -314,3 +314,55 @@ function deleteService(serviceId) {
         loadServices(); // Actualizar también en la página principal
     }
 }
+
+// Cargar servicios en la página principal con filtro opcional
+function loadServices(filter = '') {
+    const servicesGrid = document.getElementById('services-grid');
+    if (!servicesGrid) return;
+
+    servicesGrid.innerHTML = '';
+    const services = JSON.parse(localStorage.getItem('services'));
+
+    // Filtrar servicios según lo escrito
+    const filteredServices = services.filter(service =>
+        service.name.toLowerCase().includes(filter.toLowerCase()) ||
+        service.description.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    if (filteredServices.length === 0) {
+        servicesGrid.innerHTML = `<p>No se encontraron servicios.</p>`;
+        return;
+    }
+
+    filteredServices.forEach(service => {
+        const serviceCard = document.createElement('div');
+        serviceCard.className = 'service-card';
+        serviceCard.dataset.id = service.id;
+
+        serviceCard.innerHTML = `
+            <div class="service-image">${service.name}</div>
+            <div class="service-info">
+                <h3>${service.name}</h3>
+                <div class="service-price">$${service.price.toLocaleString()}</div>
+                ${service.promotion ? '<div class="promotion-badge">⭐ PROMOCIÓN</div>' : ''}
+            </div>
+        `;
+
+        serviceCard.addEventListener('click', () => showServiceDetail(service.id));
+        servicesGrid.appendChild(serviceCard);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initializeDatabase();
+    loadServices();
+    setupEventListeners();
+    startSlider();
+
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            loadServices(e.target.value);
+        });
+    }
+});
