@@ -69,24 +69,29 @@
     </section>
 
     <!-- Services Section -->
+
     <section id="services" class="services">
         <div class="container">
             <h2>Nuestros Servicios</h2>
 
-            <!-- Buscador -->
+            <!-- Search bar -->
             <div class="search-bar">
                 <input type="text" id="search-input" placeholder="Buscar servicios...">
+
+                <!-- Promo filter -->
+                <label>
+                    <input type="checkbox" id="promo-filter"> Solo en promoción
+                </label>
+                <!-- Sort by -->
+                <label for="sort-select">Ordenar por:</label>
+                <select id="sort-select">
+                    <option value="">Por defecto</option>
+                    <option value="name">Nombre</option>
+                    <option value="price">Precio</option>
+                    <option value="stock">Disponibilidad</option>
+                </select>
             </div>
 
-            <div class="services-grid" id="services-grid">
-                <!-- Los servicios se cargarán dinámicamente con JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
             <div class="services-grid" id="services-grid">
                 <!-- Los servicios se cargarán dinámicamente con JavaScript -->
             </div>

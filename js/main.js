@@ -1,5 +1,5 @@
 // Base de datos simulada con localStorage
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initializeDatabase();
     loadServices();
     setupEventListeners();
@@ -120,15 +120,15 @@ function initializeDatabase() {
 function loadServices() {
     const servicesGrid = document.getElementById('services-grid');
     if (!servicesGrid) return;
-    
+
     servicesGrid.innerHTML = '';
     const services = JSON.parse(localStorage.getItem('services'));
-    
+
     services.forEach(service => {
         const serviceCard = document.createElement('div');
         serviceCard.className = 'service-card';
         serviceCard.dataset.id = service.id;
-        
+
         serviceCard.innerHTML = `
             <div class="service-image">${service.name}</div>
             <div class="service-info">
@@ -137,7 +137,7 @@ function loadServices() {
                 ${service.promotion ? '<div class="promotion-badge">⭐ PROMOCIÓN</div>' : ''}
             </div>
         `;
-        
+
         serviceCard.addEventListener('click', () => showServiceDetail(service.id));
         servicesGrid.appendChild(serviceCard);
     });
@@ -149,17 +149,17 @@ function setupEventListeners() {
     const loginBtn = document.getElementById('login-btn');
     const loginModal = document.getElementById('login-modal');
     const loginForm = document.getElementById('login-form');
-    
+
     if (loginBtn) {
         loginBtn.addEventListener('click', (e) => {
             e.preventDefault();
             loginModal.style.display = 'flex';
         });
     }
-    
+
     // Service detail modal
     const serviceModal = document.getElementById('service-modal');
-    
+
     // Close modals
     const closeButtons = document.querySelectorAll('.close');
     closeButtons.forEach(button => {
@@ -169,14 +169,14 @@ function setupEventListeners() {
             });
         });
     });
-    
+
     // Login form submission
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            
+
             if (authenticateUser(username, password)) {
                 // Guardar sesión en localStorage
                 localStorage.setItem('isLoggedIn', 'true');
@@ -187,7 +187,7 @@ function setupEventListeners() {
             }
         });
     }
-    
+
     // Logout button
     const logoutBtn = document.getElementById('logout-btn');
     if (logoutBtn) {
@@ -195,7 +195,7 @@ function setupEventListeners() {
             document.getElementById('admin-panel').classList.add('hidden');
         });
     }
-    
+
     // Close modals when clicking outside
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal')) {
@@ -215,9 +215,9 @@ function authenticateUser(username, password) {
 function showServiceDetail(serviceId) {
     const services = JSON.parse(localStorage.getItem('services'));
     const service = services.find(s => s.id === serviceId);
-    
+
     if (!service) return;
-    
+
     const serviceDetail = document.getElementById('service-detail');
     serviceDetail.innerHTML = `
         <h3>${service.name}</h3>
@@ -227,7 +227,7 @@ function showServiceDetail(serviceId) {
         <div class="service-detail-description">${service.description}</div>
         ${service.promotion ? '<div class="promotion-badge">⭐ EN PROMOCIÓN</div>' : ''}
     `;
-    
+
     document.getElementById('service-modal').style.display = 'flex';
 }
 
@@ -236,15 +236,15 @@ function startSlider() {
     const slides = document.querySelectorAll('.slide');
     const buttons = document.querySelectorAll('.slider-btn');
     let currentSlide = 0;
-    
+
     function showSlide(index) {
         slides.forEach(slide => slide.classList.remove('active'));
         buttons.forEach(button => button.classList.remove('active'));
-        
+
         slides[index].classList.add('active');
         buttons[index].classList.add('active');
     }
-    
+
     // Add click events to slider buttons
     buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
@@ -252,7 +252,7 @@ function startSlider() {
             showSlide(currentSlide);
         });
     });
-    
+
     // Auto advance slides
     setInterval(() => {
         currentSlide = (currentSlide + 1) % slides.length;
@@ -264,10 +264,10 @@ function startSlider() {
 function loadAdminServices() {
     const tableBody = document.querySelector('#admin-services-table tbody');
     if (!tableBody) return;
-    
+
     tableBody.innerHTML = '';
     const services = JSON.parse(localStorage.getItem('services'));
-    
+
     services.forEach(service => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -280,10 +280,10 @@ function loadAdminServices() {
                 <button class="action-btn delete-btn" data-id="${service.id}">Eliminar</button>
             </td>
         `;
-        
+
         tableBody.appendChild(row);
     });
-    
+
     // Add event listeners to action buttons
     document.querySelectorAll('.edit-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -291,7 +291,7 @@ function loadAdminServices() {
             editService(serviceId);
         });
     });
-    
+
     document.querySelectorAll('.delete-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const serviceId = parseInt(e.target.dataset.id);
@@ -315,25 +315,41 @@ function deleteService(serviceId) {
     }
 }
 
-// Cargar servicios en la página principal con filtro opcional
-function loadServices(filter = '') {
+// Cargar servicios en la página principal con filtro y ordenamiento
+function loadServices(filter = '', promoOnly = false, sortBy = '') {
     const servicesGrid = document.getElementById('services-grid');
     if (!servicesGrid) return;
 
     servicesGrid.innerHTML = '';
-    const services = JSON.parse(localStorage.getItem('services'));
+    let services = JSON.parse(localStorage.getItem('services'));
 
-    // Filtrar servicios según lo escrito
-    const filteredServices = services.filter(service =>
+    // Filtrar por búsqueda
+    let filteredServices = services.filter(service =>
         service.name.toLowerCase().includes(filter.toLowerCase()) ||
         service.description.toLowerCase().includes(filter.toLowerCase())
     );
 
+    // Filtrar por promoción
+    if (promoOnly) {
+        filteredServices = filteredServices.filter(service => service.promotion === true);
+    }
+
+    // Ordenar según criterio
+    if (sortBy === 'name') {
+        filteredServices.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'price') {
+        filteredServices.sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'stock') {
+        filteredServices.sort((a, b) => a.stock - b.stock);
+    }
+
+    // Mostrar mensaje si no hay resultados
     if (filteredServices.length === 0) {
         servicesGrid.innerHTML = `<p>No se encontraron servicios.</p>`;
         return;
     }
 
+    // Renderizar servicios
     filteredServices.forEach(service => {
         const serviceCard = document.createElement('div');
         serviceCard.className = 'service-card';
@@ -345,6 +361,7 @@ function loadServices(filter = '') {
                 <h3>${service.name}</h3>
                 <div class="service-price">$${service.price.toLocaleString()}</div>
                 ${service.promotion ? '<div class="promotion-badge">⭐ PROMOCIÓN</div>' : ''}
+                <div class="service-stock">Disponibles: ${service.stock}</div>
             </div>
         `;
 
@@ -353,16 +370,27 @@ function loadServices(filter = '') {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+// Vincular buscador, checkbox y select al cargar página
+document.addEventListener('DOMContentLoaded', function () {
     initializeDatabase();
     loadServices();
     setupEventListeners();
     startSlider();
 
     const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            loadServices(e.target.value);
-        });
+    const promoFilter = document.getElementById('promo-filter');
+    const sortSelect = document.getElementById('sort-select');
+
+    function applyFilters() {
+        const filterText = searchInput ? searchInput.value : '';
+        const promoOnly = promoFilter ? promoFilter.checked : false;
+        const sortBy = sortSelect ? sortSelect.value : '';
+        loadServices(filterText, promoOnly, sortBy);
     }
+
+    if (searchInput) searchInput.addEventListener('input', applyFilters);
+    if (promoFilter) promoFilter.addEventListener('change', applyFilters);
+    if (sortSelect) sortSelect.addEventListener('change', applyFilters);
 });
+
+
