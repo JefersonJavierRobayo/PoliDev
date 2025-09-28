@@ -1,0 +1,121 @@
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario de contacto</title>
+    <link rel="stylesheet" href="styles/index_styles.css">
+    <title>POLIDEV - Servicios Tecnológicos</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/index_styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>	
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">POLIDEV</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#services">Servicios</a></li>
+                <li><a href="index.html#about">Nosotros</a></li>
+                <li><a href="#" id="login-btn">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="contact-card">
+            <div class="contact-info">
+                <h2>Contáctanos</h2>
+                <p>¿Tienes un proyecto en mente? Nos encantaría escucharte. Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Nuestra ubicación</h4>
+                            <p>Bogotá, Colombia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Teléfono</h4>
+                            <p>+57 234 5678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>info@polidev.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <div class="form-header">
+                    <h1>Formulario de contacto</h1>
+                    <h3>Escríbenos y en breve nos pondremos en contacto contigo</h3>
+                </div>
+                
+                <form action="submeter-formulario.php" method="post">
+                    <div class="form-group">
+                        <label for="nombre" class="colocar_nombre">Nombre <span class="obligatorio">*</span></label>
+                        <input type="text" name="introducir_nombre" id="nombre" class="form-control" required placeholder="Escribe tu nombre">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="colocar_email">Email <span class="obligatorio">*</span></label>
+                        <input type="email" name="introducir_email" id="email" class="form-control" required placeholder="Escribe tu Email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono" class="colocar_telefono">Teléfono</label>
+                        <input type="tel" name="introducir_telefono" id="telefono" class="form-control" placeholder="Escribe tu teléfono">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website" class="colocar_website">Sitio web</label>
+                        <input type="url" name="introducir_website" id="website" class="form-control" placeholder="Escribe la URL de tu web">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asunto" class="colocar_asunto">Asunto <span class="obligatorio">*</span></label>
+                        <input type="text" name="introducir_asunto" id="asunto" class="form-control" required placeholder="Escribe un asunto">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje" class="colocar_mensaje">Mensaje <span class="obligatorio">*</span></label>
+                        <textarea name="introducir_mensaje" class="form-control" id="mensaje" required placeholder="Deja aquí tu comentario..."></textarea>
+                    </div>
+                    
+                    <button type="submit" name="enviar_formulario" class="submit-btn">
+                        Enviar mensaje <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <p class="aviso"><span class="obligatorio">*</span> Los campos son obligatorios.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 POLIDEV. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/" target="_blank" class="fab fa-facebook-f"></a>
+            <a href="https://www.instagram.com/" target="_blank" class="fab fa-instagram"></a>
+            <a href="https://www.x.com/" target="_blank" class="fab fa-twitter"></a>
+            <a href="https://www.whatsapp.com/" target="_blank" class="fab fa-whatsapp"></a>
+        </div>
+    </footer>
+</body>
+</html>

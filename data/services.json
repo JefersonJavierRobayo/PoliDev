@@ -1,0 +1,101 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Desarrollo Web",
+      "price": 1200000,
+      "image": "https://via.placeholder.com/300x200?text=Desarrollo+Web",
+      "stock": 15,
+      "description": "Desarrollo de sitios web responsivos y aplicaciones web modernas utilizando las últimas tecnologías.",
+      "promotion": false
+    },
+    {
+      "id": 2,
+      "name": "Aplicaciones Móviles",
+      "price": 2500000,
+      "image": "https://via.placeholder.com/300x200?text=Apps+Móviles",
+      "stock": 10,
+      "description": "Desarrollo de aplicaciones nativas e híbridas para iOS y Android.",
+      "promotion": false
+    },
+    {
+      "id": 3,
+      "name": "Consultoría IT",
+      "price": 800000,
+      "image": "https://via.placeholder.com/300x200?text=Consultoría+IT",
+      "stock": 20,
+      "description": "Asesoramiento especializado en tecnología para optimizar tus procesos empresariales.",
+      "promotion": false
+    },
+    {
+      "id": 4,
+      "name": "Diseño UX/UI",
+      "price": 900000,
+      "image": "https://via.placeholder.com/300x200?text=Diseño+UX/UI",
+      "stock": 12,
+      "description": "Diseño de interfaces de usuario centradas en la experiencia del cliente.",
+      "promotion": true
+    },
+    {
+      "id": 5,
+      "name": "E-commerce",
+      "price": 1800000,
+      "image": "https://via.placeholder.com/300x200?text=E-commerce",
+      "stock": 8,
+      "description": "Desarrollo de tiendas online con pasarelas de pago integradas.",
+      "promotion": false
+    },
+    {
+      "id": 6,
+      "name": "SEO y Marketing Digital",
+      "price": 600000,
+      "image": "https://via.placeholder.com/300x200?text=SEO+Marketing",
+      "stock": 25,
+      "description": "Estrategias de posicionamiento web y marketing digital para aumentar tu visibilidad.",
+      "promotion": true
+    },
+    {
+      "id": 7,
+      "name": "Hosting y Dominio",
+      "price": 150000,
+      "image": "https://via.placeholder.com/300x200?text=Hosting+Dominio",
+      "stock": 50,
+      "description": "Servicios de hosting confiable y registro de dominios para tu presencia online.",
+      "promotion": false
+    },
+    {
+      "id": 8,
+      "name": "Mantenimiento Web",
+      "price": 300000,
+      "image": "https://via.placeholder.com/300x200?text=Mantenimiento+Web",
+      "stock": 18,
+      "description": "Mantenimiento preventivo y correctivo para asegurar el funcionamiento óptimo de tu sitio web.",
+      "promotion": false
+    },
+    {
+      "id": 9,
+      "name": "Sistemas CRM",
+      "price": 3000000,
+      "image": "https://via.placeholder.com/300x200?text=Sistemas+CRM",
+      "stock": 5,
+      "description": "Implementación de sistemas de gestión de relaciones con clientes personalizados.",
+      "promotion": true
+    },
+    {
+      "id": 10,
+      "name": "Seguridad Informática",
+      "price": 1500000,
+      "image": "https://via.placeholder.com/300x200?text=Seguridad+Informática",
+      "stock": 7,
+      "description": "Soluciones de seguridad para proteger tus datos y sistemas de posibles amenazas.",
+      "promotion": false
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123"
+    }
+  ]
+}
