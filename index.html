@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POLIDEV - Servicios Tecnológicos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar">
@@ -28,18 +30,24 @@
                 <div class="slide-content">
                     <h2>Soluciones Tecnológicas Innovadoras</h2>
                     <p>Impulsamos tu negocio con tecnología de vanguardia</p>
+
+                    <a href="#services" class="btn-services">Ver Servicios</a>
                 </div>
             </div>
             <div class="slide">
                 <div class="slide-content">
                     <h2>Desarrollo Web y Móvil</h2>
                     <p>Aplicaciones modernas y responsivas para todos los dispositivos</p>
+
+                    <a href="#services" class="btn-services">Ver Servicios</a>
                 </div>
             </div>
             <div class="slide">
                 <div class="slide-content">
                     <h2>Consultoría IT Especializada</h2>
                     <p>Expertos en transformación digital para tu empresa</p>
+
+                    <a href="#services" class="btn-services">Ver Servicios</a>
                 </div>
             </div>
         </div>
@@ -54,14 +62,36 @@
     <section id="about" class="about">
         <div class="container">
             <h2>Acerca de POLIDEV</h2>
-            <p>POLIDEV es una empresa líder en servicios tecnológicos, especializada en desarrollo de software, consultoría IT y soluciones digitales. Nuestro equipo de expertos está comprometido con ofrecer soluciones innovadoras que impulsen el crecimiento de tu negocio.</p>
+            <p>POLIDEV es una empresa líder en servicios tecnológicos, especializada en desarrollo de software,
+                consultoría IT y soluciones digitales. Nuestro equipo de expertos está comprometido con ofrecer
+                soluciones innovadoras que impulsen el crecimiento de tu negocio.</p>
         </div>
     </section>
 
     <!-- Services Section -->
+
     <section id="services" class="services">
         <div class="container">
             <h2>Nuestros Servicios</h2>
+
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Buscar servicios...">
+
+                <!-- Promo filter -->
+                <label>
+                    <input type="checkbox" id="promo-filter"> Solo en promoción
+                </label>
+                <!-- Sort by -->
+                <label for="sort-select">Ordenar por:</label>
+                <select id="sort-select">
+                    <option value="">Por defecto</option>
+                    <option value="name">Nombre</option>
+                    <option value="price">Precio</option>
+                    <option value="stock">Disponibilidad</option>
+                </select>
+            </div>
+
             <div class="services-grid" id="services-grid">
                 <!-- Los servicios se cargarán dinámicamente con JavaScript -->
             </div>
@@ -121,6 +151,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
